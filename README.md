@@ -17,7 +17,6 @@ This package is a closable modal for react native.
 
 ## What are these props ? ##
 
-name : type : function : required 
 
 | name | type  | required  | description  |
 |---|---|---|--:|
@@ -28,4 +27,4 @@ name : type : function : required
 | popupStyles  | object  | yes  | styles of your inner popup (This code is dirty, be warned)  |
 | renderDialogContent  | function  | yes  | function returning the content that will be displayed inside the modal  |
 
-This piece of code was coded with by foot and incredibly ugly. Putting this in a prod environment is discouraged.
+This piece of code was coded by a shoeless foot and incredibly ugly. Putting this in production is discouraged.
