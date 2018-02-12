@@ -27,7 +27,7 @@ class Dialog extends Component {
     }
 }
 
-export default class CloseableModal extends Component {
+export default class ClosableModal extends Component {
 
     constructor(props) {
         super(props);
