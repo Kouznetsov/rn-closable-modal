@@ -1,0 +1,14 @@
+{
+  "name": "rn-closable-modal",
+  "author": "Kouznetsov42",
+  "version": "0.0.1",
+  "keywords": "react-native",
+  "peerDependencies": {
+    "react-native": "~0.53.0",
+    "react": "^16.2.0"
+  },
+  "main": "ClosableModal.js",
+  "description": "A shitty but working closable modal for react-native",
+  "license": "MIT",
+  "repository": "https://github.com/Kouznetsov/ClosableModal.git"
+}
