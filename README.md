@@ -7,7 +7,9 @@ This package is a closable modal for react native.
 ## Then what ? ##
 
 ```
- <CloseableModal  show={this.state.modalShown}
+import ClosableModal from "rn-closable-modal"
+
+ <ClosableModal  show={this.state.modalShown}
                   onClose={this._onClose}
                   onLayoutCallback={(event) => this._onLayoutReady(event)}
                   overlayColor={/* Overlay (background) color */}
