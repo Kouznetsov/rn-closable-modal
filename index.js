@@ -1,3 +1,3 @@
 import ClosableModal from "./ClosableModal"
 
-modules.export = ClosableModal;
+export default ClosableModal;
