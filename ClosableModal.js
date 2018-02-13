@@ -128,7 +128,7 @@ export default class ClosableModal extends Component {
                     {this._renderCloseArea()}
                     <Dialog renderDialogContent={this.props.renderModalContent}
                             popupStyles={this.props.popupStyles}
-                            overlayColor={this.props.overlayColor}
+                            overlayColor={this.props.overlayColor === undefined ? "rgba(0,0,0,0.5)"}
                             pack={this.props.pack}
                             layoutCallback={(event) => {
                                 if (this.state.dialogDimensions === null)
