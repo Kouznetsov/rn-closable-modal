@@ -27,7 +27,7 @@ import ClosableModal from "rn-closable-modal"
 ## What are these props ? ##
 
 | name | type  | required  | description  |
-|---|---|---|--:|
+|---|---|---|---|
 | show   | boolean  | yes  | true -> shown. false -> hidden. |
 | onClose  | function  | no  | callback called on closing the modal (e.g. to set your state) |
 | onLayoutCallback | function(event)  | no  | callback called when the layout is ready (might be useful if you wanna know the size of some things before rendering them) |
