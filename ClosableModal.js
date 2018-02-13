@@ -18,9 +18,7 @@ class Dialog extends Component {
         return (
             <View style={{flex: 1, justifyContent: "center", zIndex: 120, backgroundColor: this.props.overlayColor}}>
                 <View style={[styles.dialog, this.props.popupStyles]} onLayout={(event) => this._onLayoutReady(event)}>
-                    <View>
-                        {this.props.renderDialogContent()}
-                    </View>
+                    {this.props.renderDialogContent()}
                 </View>
             </View>
         );
@@ -38,8 +36,8 @@ export default class ClosableModal extends Component {
     }
 
     _closeModal = () => {
-        console.log("in onCloseModal");
-        this.props.onClose();
+        if (this.props.onClose !== undefined)
+            this.props.onClose();
         this.setState({show: false})
     };
 
@@ -49,7 +47,8 @@ export default class ClosableModal extends Component {
 
     _onLayoutDialog = (event) => {
         this.setState({dialogDimensions: event.nativeEvent.layout});
-        this.props.onLayoutCallback(event);
+        if (this.props.onLayoutCallback !== undefined)
+            this.props.onLayoutCallback(event);
     };
 
     _renderCloseArea = () => {
@@ -183,7 +182,7 @@ export default class ClosableModal extends Component {
                        transparent={true}
                        visible={this.state.show}>
                     {this._renderCloseArea()}
-                    <Dialog renderDialogContent={this.props.renderDialogContent}
+                    <Dialog renderDialogContent={this.props.renderModalContent}
                             popupStyles={this.props.popupStyles}
                             overlayColor={this.props.overlayColor}
                             pack={this.props.pack}
