@@ -34,8 +34,6 @@ import ClosableModal from "rn-closable-modal"
 | overlayColor | string | no | color of the overlay hiding the screen (`rgba(0,0,0,0.5)` by default) |
 | renderModalContent  | function  | yes  | function returning the content that will be displayed inside the modal  |
 
-This piece of code was coded by a shoeless foot and incredibly ugly. Putting this in production is discouraged.
-
 ## Example ##
 
 An example of implementation is available [in this repository](https://github.com/Kouznetsov/rn-closable-modal-example/tree/master)
