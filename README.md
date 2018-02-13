@@ -2,6 +2,15 @@ This package is a closable modal for react native. This package allows to close 
 * Tapping outside of it
 * Hitting the back button on android devices
 
+## Preview ##
+
+## Preview ##
+
+| Android | iOS  |
+|---|--:|
+|  <img src="https://i.imgur.com/ugkFJnr.gif" alt="android example" width="342" height="698"> | <img src="https://i.imgur.com/TEwySkz.gif" alt="ios example" width="342" height="698"> |
+
+
 ## Installation ##
 
 `npm install rn-closable-modal`
@@ -18,7 +27,6 @@ import ClosableModal from "rn-closable-modal"
 ```
 
 ## What are these props ? ##
-
 
 | name | type  | required  | description  |
 |---|---|---|--:|
