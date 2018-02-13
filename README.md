@@ -4,8 +4,6 @@ This package is a closable modal for react native. This package allows to close 
 
 ## Preview ##
 
-## Preview ##
-
 | Android | iOS  |
 |---|--:|
 |  <img src="https://i.imgur.com/ugkFJnr.gif" alt="android example" width="422" height="702"> | <img src="https://i.imgur.com/TEwySkz.gif" alt="ios example" width="362" height="702"> |
