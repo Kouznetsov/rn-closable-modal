@@ -39,6 +39,7 @@ export default class ClosableModal extends Component {
 
     _closeModal = () => {
         console.log("in onCloseModal");
+        this.props.onClose();
         this.setState({show: false})
     };
 
