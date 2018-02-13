@@ -52,72 +52,127 @@ export default class ClosableModal extends Component {
     };
 
     _renderCloseArea = () => {
+
         if (this.state.dialogDimensions !== null) {
             const dim = this.state.dialogDimensions;
             const {height, width} = Dimensions.get('window');
 
-            return (
-                <View style={{zIndex: 220}}>
-                    <TouchableWithoutFeedback
-                        onPress={() => {
+            if (Platform.OS === "android")
+                return (
+                    <View>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View
+                                style={{
+                                    zIndex: 200,
+                                    position: "absolute",
+                                    height: dim.y,
+                                    width: width
+                                }}
+                            />
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View
+                                style={{
+                                    zIndex: 200,
+                                    position: "absolute",
+                                    top: dim.y,
+                                    height: dim.height,
+                                    width: dim.x
+                                }}
+                            />
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View
+                                style={{
+                                    zIndex: 200,
+                                    position: "absolute",
+                                    top: dim.y,
+                                    right: 0,
+                                    height: dim.height,
+                                    width: dim.x
+                                }}
+                            />
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View style={{
+                                zIndex: 200,
+
+                                position: "absolute",
+                                top: dim.y + dim.height,
+                                height: height - (dim.y + dim.height),
+                                width: width
+                            }}/>
+                        </TouchableWithoutFeedback>
+                    </View>
+                );
+            else
+                return (
+                    <View style={{zIndex: 100000}}>
+                        <TouchableWithoutFeedback onPress={() => {
                             this._closeModal()
                         }}>
-                        <View
-                            style={{
-                                zIndex: 200,
+                            <View style={{
                                 position: "absolute",
                                 height: dim.y,
                                 width: width
-                            }}
-                        />
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback
-                        onPress={() => {
-                            this._closeModal()
-                        }}>
-                        <View
-                            style={{
-                                zIndex: 200,
+                            }}/>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View
+                                style={{
+                                    position: "absolute",
+                                    top: dim.y,
+                                    height: dim.height,
+                                    width: dim.x
+                                }}
+                            />
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View
+                                style={{
+                                    position: "absolute",
+                                    top: dim.y,
+                                    right: 0,
+                                    height: dim.height,
+                                    width: dim.x
+                                }}
+                            />
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                            onPress={() => {
+                                this._closeModal()
+                            }}>
+                            <View style={{
                                 position: "absolute",
-                                top: dim.y,
-                                height: dim.height,
-                                width: dim.x
-                            }}
-                        />
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback
-                        onPress={() => {
-                            this._closeModal()
-                        }}>
-                        <View
-                            style={{
-                                zIndex: 200,
-                                position: "absolute",
-                                top: dim.y,
-                                right: 0,
-                                height: dim.height,
-                                width: dim.x
-                            }}
-                        />
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback
-                        onPress={() => {
-                            this._closeModal()
-                        }}>
-                        <View style={{
-                            zIndex: 200,
-                            position: "absolute",
-                            top: dim.y + dim.height,
-                            height: height - (dim.y + dim.height),
-                            width: width
-                        }}/>
-                    </TouchableWithoutFeedback>
-                </View>
-            );
+                                top: dim.y + dim.height,
+                                height: height - (dim.y + dim.height),
+                                width: width
+                            }}/>
+                        </TouchableWithoutFeedback>
+                    </View>
+                );
         } else
             return <View/>;
-    };
 
+    };
     render() {
         return (
             <View style={styles.globalContainer}>
@@ -128,7 +183,7 @@ export default class ClosableModal extends Component {
                     {this._renderCloseArea()}
                     <Dialog renderDialogContent={this.props.renderModalContent}
                             popupStyles={this.props.popupStyles}
-                            overlayColor={this.props.overlayColor === undefined ? "rgba(0,0,0,0.5)"}
+                            overlayColor={this.props.overlayColor === undefined ? "rgba(0,0,0,0.5)" : this.props.overlayColor}
                             pack={this.props.pack}
                             layoutCallback={(event) => {
                                 if (this.state.dialogDimensions === null)
