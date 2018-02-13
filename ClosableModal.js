@@ -16,7 +16,7 @@ class Dialog extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, justifyContent: "center", zIndex: 120, backgroundColor: this.props.overlayColor}}>
+            <View style={{flex: 1, justifyContent: "center", zIndex: 110, backgroundColor: this.props.overlayColor}}>
                 <View style={[styles.dialog, this.props.popupStyles]} onLayout={(event) => this._onLayoutReady(event)}>
                     {this.props.renderDialogContent()}
                 </View>
@@ -204,6 +204,6 @@ const styles = StyleSheet.create({
         flex: 1,
         position: 'absolute',
         alignSelf: 'center',
-        zIndex: 110
+        zIndex: 100
     },
 });
