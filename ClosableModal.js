@@ -31,14 +31,17 @@ export default class ClosableModal extends Component {
         super(props);
         this.state = {
             show: this.props.show,
-            dialogDimensions: null
+            dialogDimensions: null,
+            isClosable: this.props.isClosable === undefined ? true : this.props.isClosable
         };
     }
 
     _closeModal = () => {
-        if (this.props.onClose !== undefined)
-            this.props.onClose();
-        this.setState({show: false})
+        if (this.state.isClosable) {
+            if (this.props.onClose !== undefined)
+                this.props.onClose();
+            this.setState({show: false})
+        }
     };
 
     componentWillReceiveProps(nextProps) {
@@ -173,6 +176,7 @@ export default class ClosableModal extends Component {
             return <View/>;
 
     };
+
     render() {
         return (
             <View style={styles.globalContainer}>
