@@ -33,7 +33,7 @@ import ClosableModal from "rn-closable-modal"
 | onLayoutCallback | function(event)  | no  | callback called when the layout is ready (might be useful if you wanna know the size of some things before rendering them) |
 | overlayColor | string | no | color of the overlay hiding the screen (`rgba(0,0,0,0.5)` by default) |
 | renderModalContent  | function  | yes  | function returning the content that will be displayed inside the modal  |
-
+| isClosable | boolean | no | defines if the modal is closable or not by clicking outside or on back on android (default: true) |
 ## Example ##
 
 An example of implementation is available [in this repository](https://github.com/Kouznetsov/rn-closable-modal-example/tree/master)
