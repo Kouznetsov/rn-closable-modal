@@ -185,7 +185,7 @@ export default class ClosableModal extends Component {
                        transparent={true}
                        visible={this.state.show}>
                     {this._renderCloseArea()}
-                    <Dialog renderDialogContent={this.props.children}
+                    <Dialog renderDialogContent={() => this.props.children}
                             popupStyles={this.props.popupStyles}
                             overlayColor={this.props.overlayColor === undefined ? "rgba(0,0,0,0.5)" : this.props.overlayColor}
                             pack={this.props.pack}
