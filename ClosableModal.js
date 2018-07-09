@@ -183,6 +183,7 @@ export default class ClosableModal extends Component {
                 <Modal animationType={'fade'}
                        onRequestClose={() => this._closeModal()}
                        transparent={true}
+                       supportedOrientations={['portrait', 'landscape']}
                        visible={this.state.show}>
                     {this._renderCloseArea()}
                     <Dialog renderDialogContent={() => this.props.children}
