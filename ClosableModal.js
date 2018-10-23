@@ -49,6 +49,7 @@ export default class ClosableModal extends Component {
     }
 
     _onLayoutDialog = (event) => {
+        console.log("RECEIVED ONLAYOUTDIALOG NOW ");
         this.setState({dialogDimensions: event.nativeEvent.layout});
         if (this.props.onLayoutCallback !== undefined)
             this.props.onLayoutCallback(event);
@@ -57,8 +58,17 @@ export default class ClosableModal extends Component {
     _renderCloseArea = () => {
 
         if (this.state.dialogDimensions !== null) {
-            const dim = this.state.dialogDimensions;
-            const {height, width} = Dimensions.get('window');
+            const dim = {
+                x: Math.max(this.state.dialogDimensions.x, this.state.dialogDimensions.y),
+                y: Math.min(this.state.dialogDimensions.x, this.state.dialogDimensions.y),
+                height: Math.max(this.state.dialogDimensions.width, this.state.dialogDimensions.height),
+                width: Math.min(this.state.dialogDimensions.width, this.state.dialogDimensions.height)
+            }
+            console.log("DIMENSIONS : " )
+            console.log(dim)
+            width = Math.max(Dimensions.get('window').height, Dimensions.get('window').width);
+            height = Math.min(Dimensions.get('window').height, Dimensions.get('window').width);
+
 
             if (Platform.OS === "android")
                 return (
