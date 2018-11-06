@@ -20,6 +20,7 @@ import ClosableModal from "rn-closable-modal"
 
 <ClosableModal show={this.state.showModal}
                onClose={this._onModalClosed}
+               orientation={"horizontal"|"vertical"}
                overlayColor={"rgba(0,0,0,0.5)"}>
     <YourModalContentComponent />
 </ClosableModal>               
@@ -34,6 +35,7 @@ import ClosableModal from "rn-closable-modal"
 | onLayoutCallback | function(event)  | no  | callback called when the layout is ready (might be useful if you wanna know the size of some things before rendering them) |
 | overlayColor | string | no | color of the overlay hiding the screen (`rgba(0,0,0,0.5)` by default) |
 | isClosable | boolean | no | defines if the modal is closable or not by clicking outside or on back on android (default: true) |
+| orientation | boolean | no | Defines which orientation the modal is in. Defaults to vertical.
 ## Example ##
 
 An example of implementation is available [in this repository](https://github.com/Kouznetsov/rn-closable-modal-example/tree/master)
