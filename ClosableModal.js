@@ -139,8 +139,6 @@ export default class ClosableModal extends Component {
                         }}>
                             <View style={{
                                 position: "absolute",
-                                backgroundColor: "orange",
-                                opacity: 0.3,
                                 height: y,
                                 width: width
                             }}/>
@@ -153,9 +151,7 @@ export default class ClosableModal extends Component {
                                 style={{
                                     position: "absolute",
                                     top: y,
-                                    opacity: 0.3,
                                     height: dim.height,
-                                    backgroundColor: "red",
                                     width: x
                                 }}
                             />
@@ -169,8 +165,6 @@ export default class ClosableModal extends Component {
                                     position: "absolute",
                                     top: y,
                                     right: 0,
-                                    opacity: 0.3,
-                                    backgroundColor: "green",
                                     height: dim.height,
                                     width: x
                                 }}
@@ -182,8 +176,6 @@ export default class ClosableModal extends Component {
                             }}>
                             <View style={{
                                 position: "absolute",
-                                backgroundColor: "yellow",
-                                opacity: 0.3,
                                 top: y + dim.height,
                                 height: height - (y + dim.height),
                                 width: width
