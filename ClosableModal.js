@@ -7,6 +7,7 @@ import {
     Dimensions,
     Platform
 } from "react-native"
+import {getBottomSpace, getStatusBarHeight} from "react-native-iphone-x-helper"
 
 class Dialog extends Component {
 
@@ -59,11 +60,15 @@ export default class ClosableModal extends Component {
         if (this.state.dialogDimensions !== null) {
             const dim = this.state.dialogDimensions;
             //const {height, width} = Dimensions.get('window');
-            const height = this.props.isLandscape ? Math.min(Dimensions.get("window").height, Dimensions.get("window").width):
+            const height = this.props.isLandscape ?
+                Math.min(Dimensions.get("window").height, Dimensions.get("window").width) :
                 Math.max(Dimensions.get("window").height, Dimensions.get("window").width);
             const width = this.props.isLandscape ?
                 Math.max(Dimensions.get("window").height, Dimensions.get("window").width) :
                 Math.min(Dimensions.get("window").height, Dimensions.get("window").width);
+            let x = Math.abs(this.props.isLandscape ? dim.y : dim.x);
+            let y = Math.abs(this.props.isLandscape ? dim.x: dim.y);
+            x -= this.props.isLandscape ? getStatusBarHeight() : 0;
 
 
             if (Platform.OS === "android")
@@ -77,7 +82,7 @@ export default class ClosableModal extends Component {
                                 style={{
                                     zIndex: 200,
                                     position: "absolute",
-                                    height: dim.y,
+                                    height: y,
                                     width: width
                                 }}
                             />
@@ -90,9 +95,9 @@ export default class ClosableModal extends Component {
                                 style={{
                                     zIndex: 200,
                                     position: "absolute",
-                                    top: dim.y,
+                                    top: y,
                                     height: dim.height,
-                                    width: dim.x
+                                    width: x
                                 }}
                             />
                         </TouchableWithoutFeedback>
@@ -104,10 +109,10 @@ export default class ClosableModal extends Component {
                                 style={{
                                     zIndex: 200,
                                     position: "absolute",
-                                    top: dim.y,
+                                    top: y,
                                     right: 0,
                                     height: dim.height,
-                                    width: dim.x
+                                    width: x
                                 }}
                             />
                         </TouchableWithoutFeedback>
@@ -119,8 +124,8 @@ export default class ClosableModal extends Component {
                                 zIndex: 200,
 
                                 position: "absolute",
-                                top: dim.y + dim.height,
-                                height: height - (dim.y + dim.height),
+                                top: y + dim.height,
+                                height: height - (y + dim.height),
                                 width: width
                             }}/>
                         </TouchableWithoutFeedback>
@@ -134,7 +139,9 @@ export default class ClosableModal extends Component {
                         }}>
                             <View style={{
                                 position: "absolute",
-                                height: dim.y,
+                                backgroundColor: "orange",
+                                opacity: 0.3,
+                                height: y,
                                 width: width
                             }}/>
                         </TouchableWithoutFeedback>
@@ -145,9 +152,11 @@ export default class ClosableModal extends Component {
                             <View
                                 style={{
                                     position: "absolute",
-                                    top: dim.y,
+                                    top: y,
+                                    opacity: 0.3,
                                     height: dim.height,
-                                    width: dim.x
+                                    backgroundColor: "red",
+                                    width: x
                                 }}
                             />
                         </TouchableWithoutFeedback>
@@ -158,10 +167,12 @@ export default class ClosableModal extends Component {
                             <View
                                 style={{
                                     position: "absolute",
-                                    top: dim.y,
+                                    top: y,
                                     right: 0,
+                                    opacity: 0.3,
+                                    backgroundColor: "green",
                                     height: dim.height,
-                                    width: dim.x
+                                    width: x
                                 }}
                             />
                         </TouchableWithoutFeedback>
@@ -171,8 +182,10 @@ export default class ClosableModal extends Component {
                             }}>
                             <View style={{
                                 position: "absolute",
-                                top: dim.y + dim.height,
-                                height: height - (dim.y + dim.height),
+                                backgroundColor: "yellow",
+                                opacity: 0.3,
+                                top: y + dim.height,
+                                height: height - (y + dim.height),
                                 width: width
                             }}/>
                         </TouchableWithoutFeedback>
