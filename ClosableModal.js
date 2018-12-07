@@ -59,12 +59,11 @@ export default class ClosableModal extends Component {
         if (this.state.dialogDimensions !== null) {
             const dim = this.state.dialogDimensions;
             //const {height, width} = Dimensions.get('window');
-            const height = this.props.isLandscape ?
-                Math.min(Dimensions.get("window").height, Math.min(Dimensions.get("window").width) :
-                Math.max(Dimensions.get("window").height, Math.min(Dimensions.get("window").width);
+            const height = this.props.isLandscape ? Math.min(Dimensions.get("window").height, Dimensions.get("window").width):
+                Math.max(Dimensions.get("window").height, Dimensions.get("window").width);
             const width = this.props.isLandscape ?
-                Math.max(Dimensions.get("window").height, Math.min(Dimensions.get("window").width) :
-                Math.min(Dimensions.get("window").height, Math.min(Dimensions.get("window").width);
+                Math.max(Dimensions.get("window").height, Dimensions.get("window").width) :
+                Math.min(Dimensions.get("window").height, Dimensions.get("window").width);
 
 
             if (Platform.OS === "android")
