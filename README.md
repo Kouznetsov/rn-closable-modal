@@ -1,3 +1,5 @@
+## This package is not used anymore ##
+
 This package is a closable modal for react native. This package allows to close the modal by:
 * Tapping outside of it
 * Hitting the back button on android devices
